@@ -10,16 +10,19 @@ with open(r"C:\Users\skyri\Desktop\AdventOfCode\input_dec3.txt", 'r', encoding='
         tree_count = 0
         course_x = slope[0]
         course_y = slope[1] 
+        print(course_x)
+        print(course_y)
         for line in lines:
             #repeat for the width.
             i = 0
             line_content = ""
             while i < num_lines:
-                line_content = line_content + line.replace("\n", "")
+                line_content = line_content + line.replace("\n", "").replace(" ", "") + line.replace("\n", "").replace(" ", "") + line.replace("\n", "").replace(" ", "")
                 i = i + 1
             map.append(line_content)
     
-        position_x, position_y = 0, 0
+        position_x = 0
+        position_y = 0
         
         while position_y < len(map) and position_x < len(map[0]):
             if map[position_y][position_x] == "#":
@@ -29,4 +32,5 @@ with open(r"C:\Users\skyri\Desktop\AdventOfCode\input_dec3.txt", 'r', encoding='
         tree_counts.append(tree_count)
         print(tree_count)
         slope_number+1
+print("TreeCount part1 is: "+ str(tree_counts[1]))
 print("TreeCount totals: " + str(tree_counts[1]*tree_counts[2]*tree_counts[3]*tree_counts[4]*tree_counts[0]))
